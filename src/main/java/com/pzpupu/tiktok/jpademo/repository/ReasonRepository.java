@@ -5,6 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CaseReviewInfoRepository extends JpaRepository<Reason, Long> {
+public interface ReasonRepository extends JpaRepository<Reason, Long> {
+
+
+    // 查询Reason表中reason为指定值的记录
+    Reason findByReason(String name);
 
 }

@@ -1,18 +1,24 @@
 package com.pzpupu.tiktok.jpademo.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.ToString;
 
 import java.util.List;
 
 @Entity
-public class CaseReviewInfo {
+@Data
+@ToString
+public class Reason {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String reason;
 
-    @OneToMany(mappedBy = "caseReviewInfo")
-    private List<CaseReviewInfo> pendingHolds;
+    @ManyToOne
+    @JoinColumn(name = "record_id")
+    private Record record;
 
 }
